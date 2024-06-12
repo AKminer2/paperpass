@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "iosfwd": "cpp",
+        "string": "cpp",
+        "__locale": "cpp",
+        "__string": "cpp",
+        "bitset": "cpp",
+        "chrono": "cpp",
+        "istream": "cpp",
+        "locale": "cpp",
+        "ostream": "cpp",
+        "sstream": "cpp",
+        "format": "cpp"
+    }
+}
