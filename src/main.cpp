@@ -22,7 +22,7 @@ int main(int argc, char **argv)
         std::string option = argv[1];
 
         // print a help page
-        if (strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0)
+        if (strcmp(argv[1], "--help") == 0)
         {
             printUsage();
         }
