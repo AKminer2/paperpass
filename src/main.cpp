@@ -19,6 +19,8 @@
 #include <cstring>
 #include <map>
 
+#include "print_copying.h"
+
 // an enum of all the error types
 enum ErrorType
 {
@@ -61,13 +63,9 @@ int main(int argc, char **argv)
         {
             if (argc == 3)
             {
-                if (strcmp(argv[2], "c") == 0)
+                if (strcmp(argv[2], "c") == 0 || strcmp(argv[2], "w") == 0)
                 {
-                    
-                }
-                else if (strcmp(argv[2], "w") == 0)
-                {
-                    
+                    printCopying();
                 }
                 else
                 {
