@@ -74,7 +74,8 @@ int main(int argc, char **argv)
 // print a help page
 void printUsage()
 {
-    const std::string usage = "\n"
+    const std::string usage = (std::string)
+                              "\n"
                               "Usage: paperpass [option] [parameters]\n"
                               "\n"
                               "Options:\n"
@@ -118,10 +119,11 @@ void printError(
 void printVersion()
 {
     const std::string VERSION = (std::string)
+                                "\n"
                                 "Paperpass v0.1.0  Copyright (C) 2024  Ari Kanbur\n"
                                 "This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.\n"
                                 "This is free software, and you are welcome to redistribute it\n"
-                                "under certain conditions; type `show c' for details.\n";
+                                "under certain conditions; type `show c' for details.\n\n";
 
     std::cout << VERSION;
 }
@@ -129,9 +131,11 @@ void printVersion()
 void printCredits()
 {
     const std::string CREDITS = (std::string)
+                                "\n"
                                 "Credit to the authors of the project and all who contributed on Github.\n"
+                                "(https://github.com/AKminer2/paperpass)\n\n"
                                 "Authors:\n"
-                                "Ari Kanbur (AKminer2)\n";
+                                "Ari Kanbur (AKminer2)\n\n";
 
     std::cout << CREDITS;
 }
