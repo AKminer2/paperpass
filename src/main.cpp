@@ -22,7 +22,9 @@
 // an enum of all the error types
 enum ErrorType
 {
-    UNKNOWN_OPTION
+    UNKNOWN_OPTION,
+    BAD_ARG_COUNT,
+    UNKNOWN_ARG
 };
 
 void printUsage();
@@ -49,9 +51,39 @@ int main(int argc, char **argv)
         {
             printVersion();
         }
+        // --credits
         else if (strcmp(argv[1], "--credits") == 0)
         {
             printCredits();
+        }
+        // show c or show w for GPLv3 license
+        else if (strcmp(argv[1], "show") == 0)
+        {
+            if (argc == 3)
+            {
+                if (strcmp(argv[2], "c") == 0)
+                {
+                    
+                }
+                else if (strcmp(argv[2], "w") == 0)
+                {
+                    
+                }
+                else
+                {
+                    std::map<std::string,std::string> data;
+                    data["option"] = "show";
+                    data["arg"] = argv[2];
+                    printError(UNKNOWN_ARG, data);
+                }
+            }
+            else
+            {
+                std::map<std::string,std::string> data;
+                data["option"] = "show";
+                data["arg_count"] = "1";
+                printError(BAD_ARG_COUNT, data);
+            }
         }
         // unknown option error
         else
@@ -103,15 +135,26 @@ void printError(
 
     switch (error)
     {
-        case UNKNOWN_OPTION:
-        const std::string UNKNOWN_OPTION_ERROR_MESSAGE = (std::string)
-                                                         "\n"
-                                                         "Error: Unknown Option: "+error_data["option"]+
-                                                         "\n";
-                                                         
-
-        std::cout << UNKNOWN_OPTION_ERROR_MESSAGE;
+        case UNKNOWN_OPTION:                                       
+        std::cout << (std::string)
+                     "\n"
+                     "Error: Unknown Option: "+error_data["option"]+
+                     "\n";
         printUsage();
+        break;
+
+        case BAD_ARG_COUNT:
+        std::cout << (std::string)
+                     "\n"
+                     "Error: arguments to '"+error_data["option"]+"' are missing or too many were provided (expected "+error_data["arg_count"]+" value)\n"
+                     "\n";
+        break;
+
+        case UNKNOWN_ARG:
+        std::cout << (std::string)
+                     "\n"
+                     "Error: unknown or bad argument '"+error_data["arg"]+"' to the option '"+error_data["option"]+"'\n"
+                     "\n";
         break;
     }
 }
