@@ -80,7 +80,11 @@ void printUsage()
                               "Options:\n"
                               "\n"
                               "--help, -h\n"
-                              "Display this help page.\n\n";
+                              "Display this help page.\n\n"
+                              "--version\n"
+                              "Display the version.\n\n"
+                              "--credits\n"
+                              "Display credits.\n\n";
 
     std::cout << usage;
 }
