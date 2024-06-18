@@ -28,6 +28,7 @@ enum ErrorType
 void printUsage();
 void printError(ErrorType error, std::map<std::string,std::string> data);
 void printVersion();
+void printCredits();
 
 int main(int argc, char **argv)
 {
@@ -47,6 +48,10 @@ int main(int argc, char **argv)
         else if (strcmp(argv[1], "--version") == 0)
         {
             printVersion();
+        }
+        else if (strcmp(argv[1], "--credits") == 0)
+        {
+            printCredits();
         }
         // unknown option error
         else
@@ -109,10 +114,20 @@ void printError(
 void printVersion()
 {
     const std::string VERSION = (std::string)
-                                "paperpass v0.1.0  Copyright (C) 2024  Ari Kanbur\n"
+                                "Paperpass v0.1.0  Copyright (C) 2024  Ari Kanbur\n"
                                 "This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.\n"
                                 "This is free software, and you are welcome to redistribute it\n"
                                 "under certain conditions; type `show c' for details.\n";
 
     std::cout << VERSION;
+}
+
+void printCredits()
+{
+    const std::string CREDITS = (std::string)
+                                "Credit to the authors of the project and all who contributed on Github.\n"
+                                "Authors:\n"
+                                "Ari Kanbur (AKminer2)\n";
+
+    std::cout << CREDITS;
 }
